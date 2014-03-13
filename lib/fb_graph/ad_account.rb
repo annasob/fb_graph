@@ -1,5 +1,6 @@
 module FbGraph
   class AdAccount < Node
+    include Connections::AdCampaigns
     include Connections::AdSets
     include Connections::AdGroups
     include Connections::AdSetStats
