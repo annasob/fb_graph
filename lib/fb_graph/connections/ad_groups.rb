@@ -11,7 +11,7 @@ module FbGraph
       end
 
       # Note: AdGroups can only be created via the AdAccount connection. Even though it makes sense, they
-      # cannot be created via the AdCampaign connection
+      # cannot be created via the AdSet connection
       def ad_group!(options = {})
         ad_group = post options.merge(:connection => :adgroups)
 

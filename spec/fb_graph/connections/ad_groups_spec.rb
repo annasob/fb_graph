@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe FbGraph::Connections::AdGroups, '#ad_groups' do
-  context 'when included by FbGraph::AdCampaign' do
+  context 'when included by FbGraph::AdSet' do
     context 'when access_token is given' do
       it 'should return ad_groups as FbGraph::AdGroup' do
         mock_graph :get, '22334455/adgroups', 'ad_campaigns/ad_groups/22334455_ad_groups', :access_token => 'access_token' do
-          ad_groups = FbGraph::AdCampaign.new('22334455', :access_token => 'access_token').ad_groups
+          ad_groups = FbGraph::AdSet.new('22334455', :access_token => 'access_token').ad_groups
           ad_groups.size.should == 2
           ad_groups.each { |ad_group| ad_group.should be_instance_of(FbGraph::AdGroup) }
           ad_groups.first.should == FbGraph::AdGroup.new(
