@@ -1,5 +1,5 @@
 module FbGraph
-  class AdCampaignStat < Node
+  class AdSetStat < Node
     attr_accessor :start_time, :end_time, :campaign_id, :impressions, :clicks, :spent, :social_impressions, :social_clicks, :social_spent,
       :actions, :unique_impressions, :social_unique_impressions, :unique_clicks, :social_unique_clicks, :connections
 

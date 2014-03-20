@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe FbGraph::Connections::AdCampaignStats, '#ad_campaign_stats' do
+describe FbGraph::Connections::AdSetStats, '#ad_set_stats' do
   context 'when included by FbGraph::AdAccount' do
     context 'when access_token is given' do
-      it 'should return ad_campaign_stats as FbGraph::AdCampaignStat' do
+      it 'should return ad_set_stats as FbGraph::AdSetStats' do
         mock_graph :get, 'act_11223344/adcampaignstats', 'ad_accounts/ad_campaign_stats/test_ad_campaign_stats', :access_token => 'access_token' do
-          ad_campaign_stats = FbGraph::AdAccount.new('act_11223344', :access_token => 'access_token').ad_campaign_stats
+          ad_set_stats = FbGraph::AdAccount.new('act_11223344', :access_token => 'access_token').ad_set_stats
 
-          ad_campaign_stats.size.should == 2
-          ad_campaign_stats.each { |ad_campaign_stat| ad_campaign_stat.should be_instance_of(FbGraph::AdCampaignStat) }
-          ad_campaign_stats.first.should == FbGraph::AdCampaignStat.new(
+          ad_set_stats.size.should == 2
+          ad_set_stats.each { |ad_set_stat| ad_set_stat.should be_instance_of(FbGraph::AdSetStat) }
+          ad_set_stats.first.should == FbGraph::AdSetStat.new(
             "6002647797777/stats/0/1315507793",
             :campaign_id => 6002647797777,
             :start_time => nil,
